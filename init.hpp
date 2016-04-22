@@ -1,3 +1,6 @@
+#include "Aboria.h"
+using namespace Aboria;
 
-typedef Particles<> particles_type;
+ABORIA_VARIABLE(scalar, double, "an example scalar")
+typedef Particles<scalar> particles_type;
 void timestep(particles_type &particles);
