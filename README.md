@@ -27,6 +27,12 @@ p.position = [1, 2, 3]
 particles = init.Particles()
 # add your particle to the set of particles
 particles.append(p)
+# setup neighbourhood searching
+minbox = [0.0, 0.0 ,0.0]
+maxbox = [4.0, 4.0 ,0.0]
+L = 1.0
+periodic = [True, True, False]
+particles.init_neighbour_search(minbox,maxbox,L,periodic)
 ```
 
 I've wrapped a function `timestep` which takes a single arguement which is the particles container, so in python you would use it like

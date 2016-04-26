@@ -29,6 +29,7 @@ BOOST_PYTHON_MODULE(init) {
 	VTK_PYTHON_CONVERSION(vtkUnstructuredGrid);
 
 	Vect3_from_python_list<double>();
+	Vect3_from_python_list<bool>();
 	to_python_converter<
 		Vect3d,
 		Vect3_to_python<double> >();
@@ -40,9 +41,11 @@ BOOST_PYTHON_MODULE(init) {
 	 */
 	class_<particles_type,typename std::shared_ptr<particles_type> >("Particles")
 	        .def(boost::python::vector_indexing_suite<particles_type>())
+	        .def("init_neighbour_search",&particles_type::init_neighbour_search)
 	        .def("get_grid",&particles_type::get_grid)
 	        .def("copy_from_vtk_grid",&particles_type::copy_from_vtk_grid)
-	    ;
+            ;
+    
 
     #define ADD_PROPERTY(name_string, name) \
 		.add_property(name_string, \
