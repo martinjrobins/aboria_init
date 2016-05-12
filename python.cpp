@@ -40,6 +40,7 @@ BOOST_PYTHON_MODULE(init) {
 	 * Particles
 	 */
 	class_<particles_type,typename std::shared_ptr<particles_type> >("Particles")
+            .def(init<double>())
 	        .def(boost::python::vector_indexing_suite<particles_type>())
 	        .def("init_neighbour_search",&particles_type::init_neighbour_search)
 	        .def("get_grid",&particles_type::get_grid)

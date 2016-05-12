@@ -8,7 +8,7 @@ p = init.Particle()
 p.position = [1, 2, 0]
 
 # create a set of particles
-particles = init.Particles()
+particles = init.Particles(123)
 
 # add your particle to the set of particles
 particles.append(p)
