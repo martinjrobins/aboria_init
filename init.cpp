@@ -34,7 +34,7 @@ void timestep(particles_type &particles) {
         
     p[a] += std::sqrt(2*D*dt)*vector(N,N,N);
 
-    p[a] = sum(b, (id_[a]!=id_[b]) && (norm(dx)<(r_a+r_b)),
+    p[a] += sum(b, (id_[a]!=id_[b]) && (norm(dx)<(r_a+r_b)),
                     ((r_a+r_b)/norm(dx)-1)*dx);
     
 }
